@@ -1,3 +1,33 @@
+import SlidingLogoMarquee from "../components/sliding-logo-marquee";
+import type { SlidingLogoMarqueeItem } from "../components/sliding-logo-marquee";
+import { Cpu, Server, Wind, Rocket, Code2 } from "lucide-react";
+const logos: SlidingLogoMarqueeItem[] = [
+  {
+    id: "react",
+    content: <Cpu className="w-30 h-10 text-sky-500" />,
+    href: "https://react.dev",
+  },
+  {
+    id: "node",
+    content: <Server className="w-30 h-10 text-green-600" />,
+    href: "https://nodejs.org",
+  },
+  {
+    id: "tw",
+    content: <Wind className="w-30 h-10 text-sky-400" />,
+    href: "https://tailwindcss.com",
+  },
+  {
+    id: "vite",
+    content: <Rocket className="w-30 h-10 text-purple-500" />,
+    href: "https://vitejs.dev",
+  },
+  {
+    id: "github",
+    content: <Code2 className="w-30 h-10 text-gray-300" />,
+    href: "https://github.com",
+  },
+];
 export default function Home() {
   return (
     <section className="space-y-5">
@@ -25,12 +55,16 @@ export default function Home() {
           />
         </div>
       </div>
-
+      <div>
+        <h1 className="font-extrabold text-white text-6xl font-lato text-center">
+          Proyectos Destacados
+        </h1>
+      </div>
       <div className="grid grid-cols-4 grid-rows-5 gap-4 text-white">
-        <div className="col-span-2 row-span-5 bg-red-400 flex flex-col justify-between p-4 rounded-2xl bg-[url(src/assets/auto.jpeg)] bg-no-repeat bg-cover">
+        <div className="col-span-2 row-span-5 flex flex-col justify-between p-4 rounded-2xl bg-shadow-pop-a40 bg-no-repeat bg-cover">
           <h1 className="font-black text-6xl ">01</h1>
           <div>
-            <p className="text-2xl font-bold">BUNISSES COACHING</p>
+            <p className="text-2xl font-bold"> Gestor de Ventas </p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga unde
               velit doloremque dicta
@@ -68,23 +102,15 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="relative w-full h-[400px] z-0">
-        <img
-          src="src/assets/resourdse.jpg"
-          className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
-        />
-        <button className="absolute bottom-[10%] left-[50%] -translate-x-1/2 px-6 py-3 bg-red-500">
-          Call to Action
-        </button>
-      </div>
-      <div className="relative w-full h-[400px] z-0">
-        <img
-          src="src/assets/resourdse.jpg"
-          className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
-        />
-        <button className="absolute bottom-[10%] left-[50%] -translate-x-1/2 px-6 py-3 bg-red-500">
-          Call to Action
-        </button>
+      <div>
+        <div>
+          <h1 className="font-extrabold text-white text-6xl font-lato text-center">
+            Habilidades / Tech Stack
+          </h1>
+        </div>
+        <div>
+          <SlidingLogoMarquee items={logos} height="200px" speed={80} />
+        </div>
       </div>
     </section>
   );
